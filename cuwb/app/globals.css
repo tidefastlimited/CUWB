@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fffafa;
+  --foreground: #1f1717;
+  --brand: #ef3a32;
+  --brand-hover: #d92f28;
+  --brand-soft: #fff0ef;
+  --brand-border: #ffc7c3;
+  --brand-ink: #7d1712;
+  --surface: #fffcfb;
+  --panel: #f8f3f1;
+  --polished-panel: #fff6f4;
+  --line: #e8d8d5;
+  --muted: #5f5654;
+  --subtle: #8a7f7c;
+  --lift: 0 18px 40px rgba(31, 23, 23, 0.12);
+  --interactive-lift: 0 10px 24px rgba(31, 23, 23, 0.08);
+  --console-lift: 0 24px 70px rgba(31, 23, 23, 0.14);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-border: var(--brand-border);
+  --color-brand-ink: var(--brand-ink);
+  --color-surface: var(--surface);
+  --color-panel: var(--panel);
+  --color-polished-panel: var(--polished-panel);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #120d0d;
+    --foreground: #f7eded;
+    --brand-soft: #2a1211;
+    --brand-border: #6f201b;
+    --brand-ink: #ffd7d4;
+    --surface: #1b1413;
+    --panel: #241918;
+    --polished-panel: #2a1715;
+    --line: #3b2927;
+    --muted: #cbbfbc;
+    --subtle: #9d8f8b;
+    --lift: 0 18px 40px rgba(0, 0, 0, 0.32);
+    --interactive-lift: 0 10px 24px rgba(0, 0, 0, 0.18);
+    --console-lift: 0 24px 70px rgba(0, 0, 0, 0.42);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--brand);
+  color: var(--background);
+}
+
+.hero-field {
+  isolation: isolate;
+}
+
+.signal-grid {
+  background:
+    radial-gradient(circle at 18% 24%, rgba(239, 58, 50, 0.14), transparent 28%),
+    radial-gradient(circle at 80% 18%, rgba(239, 58, 50, 0.08), transparent 24%),
+    linear-gradient(90deg, rgba(232, 216, 213, 0.42) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(232, 216, 213, 0.42) 1px, transparent 1px);
+  background-size: auto, auto, 72px 72px, 72px 72px;
+}
+
+.dark-signal-grid {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(239, 58, 50, 0.22), transparent 24%),
+    radial-gradient(circle at 84% 78%, rgba(255, 199, 195, 0.1), transparent 28%),
+    linear-gradient(90deg, rgba(255, 199, 195, 0.12) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 199, 195, 0.12) 1px, transparent 1px);
+  background-size: auto, auto, 64px 64px, 64px 64px;
+}
+
+.solutions-mosaic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-auto-flow: dense;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .solutions-mosaic > a:nth-child(1),
+  .solutions-mosaic > a:nth-child(4),
+  .solutions-mosaic > a:nth-child(8) {
+    grid-column: span 2;
+  }
+}
